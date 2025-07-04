@@ -14,9 +14,7 @@ struct MissionListCardView: View {
     var body: some View {
         LazyVStack {
             ForEach(missions) { mission in
-                NavigationLink {
-                    MissionView(mission: mission, astronauts: astronauts)
-                } label: {
+                NavigationLink(value: mission) {
                     HStack(spacing: 0) {
                         Image(mission.image)
                             .resizable()

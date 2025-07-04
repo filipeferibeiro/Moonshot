@@ -12,9 +12,7 @@ struct ContentView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
     @State private var displayAsList = false
-    
-    
-    
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -27,6 +25,12 @@ struct ContentView: View {
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
+            .navigationDestination(for: Mission.self, destination: { mission in
+                MissionView(mission: mission, astronauts: astronauts)
+            })
+            .navigationDestination(for: Astronaut.self, destination: { astronaut in
+                AstronautView(astronaut: astronaut)
+            })
             .toolbar {
                 Button("Display Type", systemImage: displayAsList ? "square.grid.2x2" : "rectangle.grid.1x2.fill") {
                     displayAsList.toggle()
