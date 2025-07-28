@@ -40,6 +40,9 @@ struct MissionListCardView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(.lightBackground)
                     }
+                    .accessibilityElement()
+                    .accessibilityLabel("Mission \(mission.displayName)")
+                    .accessibilityHint("Mission date: \(mission.formattedLaunchDate(type: .small))")
                 }
             }
         }

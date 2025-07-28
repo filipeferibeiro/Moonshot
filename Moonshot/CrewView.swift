@@ -36,6 +36,9 @@ struct CrewView: View {
                             }
                         }
                         .padding(.horizontal)
+                        .accessibilityElement()
+                        .accessibilityLabel(crewMember.astronaut.name)
+                        .accessibilityHint("Role: \(crewMember.role)")
                     }
                 }
             }
